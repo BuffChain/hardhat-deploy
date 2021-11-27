@@ -33,6 +33,9 @@ contract Diamond {
         ds.supportedInterfaces[type(IDiamondCut).interfaceId] = true;
         ds.supportedInterfaces[type(IDiamondLoupe).interfaceId] = true;
         ds.supportedInterfaces[type(IERC173).interfaceId] = true;
+
+        require(false == true, '-----adsfadfa----');
+
     }
 
     // Find facet for function that is called and execute the

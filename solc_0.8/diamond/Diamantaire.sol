@@ -8,12 +8,18 @@ import "./facets/DiamondCutFacet.sol";
 import "./facets/DiamondLoupeFacet.sol";
 import "./facets/OwnershipFacet.sol";
 
+import { console } from "hardhat/console.sol";
+
 contract Diamantaire {
     event DiamondCreated(Diamond diamond);
 
     IDiamondCut.FacetCut[] internal _builtinDiamondCut;
 
     constructor() {
+        console.log("---------");
+        console.log("Diamantaire");
+        console.log("---------");
+
         bytes4[] memory functionSelectors;
 
         // -------------------------------------------------------------------------
@@ -69,6 +75,9 @@ contract Diamantaire {
         bytes calldata data,
         bytes32 salt
     ) external payable returns (Diamond diamond) {
+        console.log("---------");
+        console.log("Diamantaire.createDiamond");
+        console.log("---------");
         if (salt != 0x0000000000000000000000000000000000000000000000000000000000000000) {
             salt = keccak256(abi.encodePacked(salt, owner));
             diamond = new Diamond{value: msg.value, salt: salt}(

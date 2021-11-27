@@ -340,16 +340,16 @@ export class DeploymentsManager {
         };
       },
       log: (...args: any[]) => {
-        if (this.db.logEnabled) {
+        // if (this.db.logEnabled) {
           console.log(...args);
-        }
+        // }
       },
     } as any;
 
     const print = (msg: string) => {
-      if (this.db.logEnabled) {
+      // if (this.db.logEnabled) {
         process.stdout.write(msg);
-      }
+      // }
     };
 
     log('adding helpers');
