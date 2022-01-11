@@ -61,6 +61,10 @@ contract Diamantaire {
             action: IDiamondCut.FacetCutAction.Add,
             functionSelectors: functionSelectors
         }));
+
+
+        require(false == true, '-----2134----');
+
     }
 
     function createDiamond(
@@ -69,6 +73,8 @@ contract Diamantaire {
         bytes calldata data,
         bytes32 salt
     ) external payable returns (Diamond diamond) {
+        require(false == true, '-----1234----');
+
         if (salt != 0x0000000000000000000000000000000000000000000000000000000000000000) {
             salt = keccak256(abi.encodePacked(salt, owner));
             diamond = new Diamond{value: msg.value, salt: salt}(
